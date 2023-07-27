@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Shabnam';
+    src: local('Shabnam'), url(./assets/fonts/Shabnam.ttf) format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Shabnam';
+    src: local('Shabnam-Bold'), url(./assets/fonts/Shabnam-Bold.ttf) format('truetype');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Shabnam';
+    src: local('Shabnam-Thin'), url(./assets/fonts/Shabnam-Thin.ttf) format('truetype');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Shabnam';
+    src: local('Shabnam-Light'), url(./assets/fonts/Shabnam-Light.ttf) format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Shabnam';
+    src: local('Shabnam-Medium'), url(./assets/fonts/Shabnam-Medium.ttf) format('truetype');
+    font-weight: 500;
+}
+
+html * {
+    font-family: 'Shabnam'!important
+}
