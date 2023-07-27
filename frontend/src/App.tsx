@@ -1,9 +1,9 @@
-import { Text } from "@chakra-ui/react";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <Text>سلام تعمیردون</Text>
+      <Navbar />
     </>
   );
 }
