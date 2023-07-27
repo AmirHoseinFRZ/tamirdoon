@@ -34,6 +34,7 @@ const Navbar = () => {
         </Link>
         <Show above="md">
           <LabeledSwitch
+            label="حالت شب"
             onToggle={() => toggleColorMode()}
             isChecked={colorMode === "dark"}
           />
