@@ -5,14 +5,15 @@ services:
     image: mysql:8.0
     restart: always
     environment:
+      MYSQL_HOST: localhost
       MYSQL_ROOT_PASSWORD: Test1234
       MYSQL_DATABASE: tamirdoon
       MYSQL_USER: admin
       MYSQL_PASSWORD: Admin1234
-    volumes: 
-      - "./setup.sql:/docker-entrypoint-initdb.d/setup.sql"
     ports:
       - '3306:3306'
+    volumes:
+    - "./setup.sql:/docker-entrypoint-initdb.d/setup.sql"
   backend-service:
     build:
       context: ./backend
@@ -24,14 +25,14 @@ services:
       - mysql_db
     environment:
       PORT: 3000
-      DB_HOST: mysql
+      DB_HOST: mysql_db
       DB_PORT: 3306
       DB_DATABASE: tamirdoon
       DB_USERNAME: admin
       DB_PASSWORD: Admin1234
     volumes:
-      - /app/node_modules
       - ./backend:/app
+      - ./backend/node_modules:/app/node_modules
   frontend-service:
     build:
       context: ./frontend
@@ -40,5 +41,5 @@ services:
     ports:
       - '5173:5173'
     volumes:
-      - /app/node_modules
       - ./frontend:/app
+      - ./frontend/node_modules:/app/node_modules
