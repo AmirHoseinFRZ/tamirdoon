@@ -5,13 +5,23 @@ import {
   Heading,
   Input,
   VStack,
+  Text,
 } from "@chakra-ui/react";
 import FormContainer from "../components/FormContainer";
 
 const SigninPage = () => {
   return (
     <FormContainer>
-      <Heading>ورود به تعمیردون</Heading>
+      <Heading>
+        ورود به{" "}
+        <Text
+          as="span"
+          bgGradient="linear(to-r, red.400, pink.400)"
+          bgClip="text"
+        >
+          تعمیردون
+        </Text>
+      </Heading>
       <VStack
         as="form"
         onSubmit={(event) => {
@@ -27,7 +37,17 @@ const SigninPage = () => {
           <FormLabel>رمز عبور</FormLabel>
           <Input type="password" placeholder="رمز عبور" dir="ltr" />
         </FormControl>
-        <Button marginTop={5} paddingX={10} colorScheme="teal" type="submit">
+        <Button
+          marginTop={5}
+          paddingX={10}
+          bgGradient="linear(to-r, pink.400, blue.300)"
+          color="white"
+          _hover={{
+            bgGradient: "linear(to-r, pink.400, blue.300)",
+            boxShadow: "xl",
+          }}
+          type="submit"
+        >
           ورود
         </Button>
       </VStack>

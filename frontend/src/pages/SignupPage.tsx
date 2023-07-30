@@ -4,6 +4,7 @@ import {
   FormLabel,
   Heading,
   Input,
+  Text,
   VStack,
 } from "@chakra-ui/react";
 import FormContainer from "../components/FormContainer";
@@ -11,7 +12,16 @@ import FormContainer from "../components/FormContainer";
 const Signup = () => {
   return (
     <FormContainer>
-      <Heading>ثبت نام در تعمیردون</Heading>
+      <Heading>
+        ثبت نام در{" "}
+        <Text
+          as="span"
+          bgGradient="linear(to-r, red.400, pink.400)"
+          bgClip="text"
+        >
+          تعمیردون
+        </Text>
+      </Heading>
       <VStack
         as="form"
         onSubmit={(event) => {
@@ -35,7 +45,17 @@ const Signup = () => {
           <FormLabel>تکرار رمز عبور</FormLabel>
           <Input type="password" placeholder="تکرار رمز عبور" dir="ltr" />
         </FormControl>
-        <Button marginTop={5} paddingX={10} colorScheme="green" type="submit">
+        <Button
+          bgGradient="linear(to-r, red.400, pink.400)"
+          color="white"
+          _hover={{
+            bgGradient: "linear(to-r, red.400, pink.400)",
+            boxShadow: "xl",
+          }}
+          marginTop={5}
+          paddingX={10}
+          type="submit"
+        >
           ثبت نام
         </Button>
       </VStack>

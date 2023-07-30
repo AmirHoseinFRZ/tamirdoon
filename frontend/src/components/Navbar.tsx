@@ -3,32 +3,51 @@ import {
   HStack,
   Heading,
   Show,
+  useBreakpointValue,
   useColorMode,
-  useColorModeValue,
 } from "@chakra-ui/react";
-import LabeledSwitch from "./LabeledSwitch";
 import { Link } from "react-router-dom";
+import LabeledSwitch from "./LabeledSwitch";
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <HStack
-      bgColor={useColorModeValue("gray.50", "gray.900")}
-      justify="space-between"
-    >
+    <HStack justify="space-between">
       <Link to="/">
-        <Heading margin={2} as="h1" fontSize="2xl">
+        <Heading
+          margin={2}
+          as="h1"
+          fontSize={useBreakpointValue({ base: "3xl", md: "4xl", lg: "5xl" })}
+          bgGradient="linear(to-r, red.400, pink.400)"
+          bgClip="text"
+        >
           تعمیردون
         </Heading>
       </Link>
       <HStack margin={2}>
         <Link to="/signup">
-          <Button marginLeft={2} colorScheme="green">
+          <Button
+            marginLeft={2}
+            bgGradient="linear(to-r, red.400, pink.400)"
+            color="white"
+            _hover={{
+              bgGradient: "linear(to-r, red.400, pink.400)",
+              boxShadow: "xl",
+            }}
+          >
             ثبت نام
           </Button>
         </Link>
         <Link to="/signin">
-          <Button marginLeft={4} colorScheme="teal">
+          <Button
+            marginLeft={4}
+            bgGradient="linear(to-r, pink.400, blue.300)"
+            color="white"
+            _hover={{
+              bgGradient: "linear(to-r, pink.400, blue.300)",
+              boxShadow: "xl",
+            }}
+          >
             ورود
           </Button>
         </Link>
