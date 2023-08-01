@@ -1,4 +1,4 @@
-version: '1.0'
+version: '3'
 
 services:
   mysql_db:
@@ -12,12 +12,8 @@ services:
       MYSQL_PASSWORD: Admin1234
     ports:
       - '3306:3306'
-    volumes:
-    - "./setup.sql:/docker-entrypoint-initdb.d/setup.sql"
   backend-service:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    build: ./backend
     restart: always
     ports:
       - '3000:3000'
@@ -31,15 +27,11 @@ services:
       DB_USERNAME: admin
       DB_PASSWORD: Admin1234
     volumes:
-      - ./backend:/app
-      - ./backend/node_modules:/app/node_modules
+      - ./backend:/usr/src/app
   frontend-service:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    build: ./frontend
     restart: always
     ports:
       - '5173:5173'
     volumes:
-      - ./frontend:/app
-      - ./frontend/node_modules:/app/node_modules
+      - ./frontend:/usr/src/app

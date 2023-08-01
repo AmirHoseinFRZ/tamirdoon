@@ -10,7 +10,7 @@ sequelize
   .catch((err) => console.log("Can't connect to the database. Error: " + err));
 
 app.get("/", (req, res) => {
-  res.send("Hello express !");
+  res.send("Hello express !!");
 });
 
 const PORT = process.env.PORT || 3000;
