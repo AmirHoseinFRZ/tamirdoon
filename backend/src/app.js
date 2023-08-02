@@ -4,18 +4,9 @@ const { User } = require("./models/User");
 const app = express();
 
 require('./startup/db')();
-
-app.get("/", (req, res) => {
-  res.send("Hello express !!");
-});
-app.get("/sync", (req, res) => {
-  User.sync({ force: true })
-    .then(() => res.send("Table created!"))
-    .catch((err) => res.status(500).send("Error: " + err));
-});
+require('./startup/routes')(app);
 
 const PORT = process.env.PORT || 3000;
-
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}.`);
 });
