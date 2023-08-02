@@ -1,5 +1,5 @@
 const { DataTypes, Model } = require("sequelize");
-
+const Joi = require('joi');
 const { sequelize } = require("../../configs/db.js");
 
 class User extends Model {}
@@ -42,4 +42,8 @@ User.init(
   }
 );
 
-module.exports = { User };
+function userValidate(user) {
+    const schema = Joi.object({})
+    return schema.validate(user);
+}
+module.exports = { User, userValidate };
