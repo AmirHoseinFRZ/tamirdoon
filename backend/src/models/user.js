@@ -4,11 +4,6 @@ const Image = require('./image');
 const Joi = require('joi');
 
 const User = sequelize.define('User', {
-    userId: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-    },
     name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -64,19 +59,9 @@ const User = sequelize.define('User', {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    createdAt: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-    },
-    updatedAt: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-    }
 });
 
-User.hasMany(Image, {
+User.hasOne(Image, {
     foreignKey: 'ImageId',
 });
 
