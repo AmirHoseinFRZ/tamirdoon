@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "admin",
+    "password": "Admin1234",
+    "database": "tamirdoon",
+    "host": "tamirdoon-mysql_db-1",
+    "dialect": "mysql"
+  }
+}
