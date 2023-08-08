@@ -1,4 +1,4 @@
-const { sequelize } = require("../../configs/db.js");
+const { sequelize } = require("../../config/db.js");
 
 module.exports = function (){
     sequelize
