@@ -1,6 +1,8 @@
 const { DataTypes } = require("sequelize");
-const { sequelize } = require("../../configs/db.js");
+const { sequelize } = require("../../config/db.js");
 const Image = require('./image');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 const Joi = require('joi');
 
 const User = sequelize.define('User', {
@@ -58,8 +60,12 @@ const User = sequelize.define('User', {
     phoneNumberIsVerified: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
-    },
+    }
 });
+
+User.generateAuthToken = function(){
+    return jwt.sign({id: this.id, email: this.email, name: this.name, lastName: this.lastName } , config.get('jwtPrivateKey'));
+}
 
 User.hasOne(Image, {
     foreignKey: 'ImageId',
