@@ -61,7 +61,10 @@ const User = sequelize.define('User', {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     }
-});
+},
+    {
+        tableName: 'users',
+    });
 
 User.generateAuthToken = function(){
     return jwt.sign({id: this.id, email: this.email, name: this.name, lastName: this.lastName } , config.get('jwtPrivateKey'));
