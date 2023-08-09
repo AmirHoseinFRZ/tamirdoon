@@ -10,5 +10,8 @@ module.exports = sequelize.define('Image', {
         type: DataTypes.STRING,
         allowNull: false,
     }
-});
+},
+    {
+        tableName: 'images',
+    });
 
